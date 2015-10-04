@@ -21,6 +21,11 @@ namespace Run4Fun
         private const int minimumTileHeight = 100;
         private const int maximumTileHeight = 500;
 
+        private const int smallTileHeight = 250;
+        private const int bigTileHeight = 500;
+
+        private const bool randomTileHeightEnabled = false;
+
         // The X coordinate for the middle(3rd) tile.
         private static int middleTileX;
 
@@ -57,11 +62,11 @@ namespace Run4Fun
 
             middleTileX = (Width / 2) - (tileWidth / 2);
 
-            rectangle1 = new Rectangle(middleTileX - (2 * tileWidth), -tileHeight, tileWidth, maximumTileHeight);
-            rectangle2 = new Rectangle(middleTileX - tileWidth, -tileHeight, tileWidth, maximumTileHeight);
-            rectangle3 = new Rectangle(middleTileX, -tileHeight, tileWidth, maximumTileHeight);
-            rectangle4 = new Rectangle(middleTileX + tileWidth, -tileHeight, tileWidth, maximumTileHeight);
-            rectangle5 = new Rectangle(middleTileX + (2 * tileWidth), -tileHeight, tileWidth, maximumTileHeight);
+            rectangle1 = new Rectangle(middleTileX - (2 * tileWidth), -tileHeight, tileWidth, smallTileHeight);
+            rectangle2 = new Rectangle(middleTileX - tileWidth, -tileHeight, tileWidth, smallTileHeight);
+            rectangle3 = new Rectangle(middleTileX, -tileHeight, tileWidth, smallTileHeight);
+            rectangle4 = new Rectangle(middleTileX + tileWidth, -tileHeight, tileWidth, smallTileHeight);
+            rectangle5 = new Rectangle(middleTileX + (2 * tileWidth), -tileHeight, tileWidth, smallTileHeight);
 
             rectangles.Add(rectangle1);
             rectangles.Add(rectangle2);
@@ -69,8 +74,40 @@ namespace Run4Fun
             rectangles.Add(rectangle4);
             rectangles.Add(rectangle5);
 
-            //for (int i = 0; i < 5; i++)
-            //rectangles.Add(new Rectangle(50, 50, 50, 50));
+        }
+
+        private Rectangle generateRandomRectangle()
+        {
+            return new Rectangle(generateX(), generateRandomNegativeY(), tileWidth, genererateRandomTileHeight());
+        }
+
+        private int generateX()
+        {
+            // Random lane;
+            int randomNumber = random.Next(1, 6);
+            int x;
+            switch (randomNumber)
+            {
+                case 1:
+                    x = middleTileX - (2 * tileWidth);
+                    break;
+                case 2:
+                    x = middleTileX - tileWidth;
+                    break;
+                case 3:
+                    x = middleTileX;
+                    break;
+                case 4:
+                    x = middleTileX + tileWidth;
+                    break;
+                case 5:
+                    x = middleTileX + (2 * tileWidth);
+                    break;
+                default:
+                    x = 0;
+                    break;
+            }
+            return x;
         }
 
         /// <summary>
@@ -88,15 +125,15 @@ namespace Run4Fun
             // Draw logo.
             graphics.DrawImage(Properties.Resources.logo, 1500, 400);
 
-            // Player.
-            graphics.FillEllipse(Brushes.Red, rectanglePlayer);
-
             // Draw all rectangles.
             foreach (Rectangle rect in rectangles)
             {
                 if (!outOfScreen(rect))
                     graphics.FillRectangle(Brushes.Black, rect);
             }
+
+            // Player.
+            graphics.FillEllipse(Brushes.Red, rectanglePlayer);
         }
 
         /// <summary>
@@ -115,9 +152,9 @@ namespace Run4Fun
         /// Generate a random number between 0 and (intensity * screen height).
         /// </summary>
         /// <returns></returns>
-        private int generateRandomY()
+        private int generateRandomNegativeY()
         {
-            return random.Next(maximumTileHeight, intensity * Height);
+            return -random.Next(maximumTileHeight, intensity * Height);
         }
 
         /// <summary>
@@ -126,7 +163,19 @@ namespace Run4Fun
         /// <returns></returns>
         private int genererateRandomTileHeight()
         {
-            return random.Next(100, 500);
+            int tileHeight;
+            if (randomTileHeightEnabled)
+                tileHeight = random.Next(100, 500);
+            else
+            {
+                int randomnumber = random.Next(2);
+                if (randomnumber == 0)
+                    tileHeight = smallTileHeight;
+                else
+                    tileHeight = bigTileHeight;
+            }
+            Console.WriteLine(tileHeight);
+            return tileHeight;
         }
 
         /// <summary>
@@ -147,7 +196,7 @@ namespace Run4Fun
 
                 // If the tile is out of screen, create new tile. Otherwise increase the tile's Y by speed.
                 if (outOfScreen(rect))
-                    rect = new Rectangle(rect.X, -generateRandomY(), rect.Width, genererateRandomTileHeight());
+                    rect = generateRandomRectangle();
                 else
                     rect.Y += speed;
 
