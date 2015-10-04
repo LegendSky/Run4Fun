@@ -53,3 +53,14 @@ D:\Google Drive\A4B\Proftaak\Run4Fun software\Run4Fun\Run4Fun\obj\Debug\Run4Fun.
 D:\Google Drive\A4B\Proftaak\Run4Fun software\Run4Fun\Run4Fun\obj\Debug\Run4Fun.Properties.Resources.resources
 D:\Google Drive\A4B\Proftaak\Run4Fun software\Run4Fun\Run4Fun\obj\Debug\Run4Fun.startForm.resources
 D:\Google Drive\A4B\Proftaak\Run4Fun software\Run4Fun\Run4Fun\obj\Debug\Run4Fun.csproj.GenerateResource.Cache
+D:\GitHub\run4fun\Run4Fun\bin\Debug\Run4Fun.exe.config
+D:\GitHub\run4fun\Run4Fun\obj\Debug\Run4Fun.exe
+D:\GitHub\run4fun\Run4Fun\obj\Debug\Run4Fun.pdb
+D:\GitHub\run4fun\Run4Fun\bin\Debug\Run4Fun.exe
+D:\GitHub\run4fun\Run4Fun\bin\Debug\Run4Fun.pdb
+D:\GitHub\run4fun\Run4Fun\obj\Debug\Run4Fun.csprojResolveAssemblyReference.cache
+D:\GitHub\run4fun\Run4Fun\obj\Debug\Run4Fun.gameForm.resources
+D:\GitHub\run4fun\Run4Fun\obj\Debug\Run4Fun.hiscoresForm.resources
+D:\GitHub\run4fun\Run4Fun\obj\Debug\Run4Fun.Properties.Resources.resources
+D:\GitHub\run4fun\Run4Fun\obj\Debug\Run4Fun.startForm.resources
+D:\GitHub\run4fun\Run4Fun\obj\Debug\Run4Fun.csproj.GenerateResource.Cache
