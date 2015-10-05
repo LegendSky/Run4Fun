@@ -35,13 +35,6 @@ namespace Run4Fun
         // Player size.
         private const int playerSize = 25;
 
-        // Declaration of the rectangle objects used.
-        private Rectangle rectangle1;
-        private Rectangle rectangle2;
-        private Rectangle rectangle3;
-        private Rectangle rectangle4;
-        private Rectangle rectangle5;
-
         // TODO Make it work with arraylist.
         private List<Rectangle> rectangles = new List<Rectangle>();
 
@@ -62,11 +55,11 @@ namespace Run4Fun
 
             middleTileX = (Width / 2) - (tileWidth / 2);
 
-            rectangle1 = new Rectangle(middleTileX - (2 * tileWidth), -tileHeight, tileWidth, smallTileHeight);
-            rectangle2 = new Rectangle(middleTileX - tileWidth, -tileHeight, tileWidth, smallTileHeight);
-            rectangle3 = new Rectangle(middleTileX, -tileHeight, tileWidth, smallTileHeight);
-            rectangle4 = new Rectangle(middleTileX + tileWidth, -tileHeight, tileWidth, smallTileHeight);
-            rectangle5 = new Rectangle(middleTileX + (2 * tileWidth), -tileHeight, tileWidth, smallTileHeight);
+            Rectangle rectangle1 = new Rectangle(middleTileX - (2 * tileWidth), -tileHeight, tileWidth, smallTileHeight);
+            Rectangle rectangle2 = new Rectangle(middleTileX - tileWidth, -tileHeight, tileWidth, smallTileHeight);
+            Rectangle rectangle3 = new Rectangle(middleTileX, -tileHeight, tileWidth, smallTileHeight);
+            Rectangle rectangle4 = new Rectangle(middleTileX + tileWidth, -tileHeight, tileWidth, smallTileHeight);
+            Rectangle rectangle5 = new Rectangle(middleTileX + (2 * tileWidth), -tileHeight, tileWidth, smallTileHeight);
 
             rectangles.Add(rectangle1);
             rectangles.Add(rectangle2);
