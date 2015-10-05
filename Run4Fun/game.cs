@@ -176,7 +176,7 @@ namespace Run4Fun
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void timer_Tick(object sender, EventArgs e)
+        private void timerScore_Tick(object sender, EventArgs e)
         {
             // Score increases by 1 every tick.
             score += 1;
@@ -189,15 +189,27 @@ namespace Run4Fun
 
                 // If the tile is out of screen, create new tile. Otherwise increase the tile's Y by speed.
                 if (outOfScreen(rect))
-                    rect = generateRandomRectangle();
+                {
+                    rectangles.RemoveAt(i);
+                    //rect = generateRandomRectangle();
+                }
                 else
+                {
                     rect.Y += speed;
 
-                // Assign the modified rectangle to the index of the list.
-                rectangles[i] = rect;
+                    // Assign the modified rectangle to the index of the list.
+                    rectangles[i] = rect;
+                }
             }
+
             // Repaint.
             Invalidate();
+        }
+
+
+        private void timerRectangles_Tick(object sender, EventArgs e)
+        {
+            rectangles.Add(generateRandomRectangle());
         }
 
         /// <summary>

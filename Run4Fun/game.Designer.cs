@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.timerScore = new System.Windows.Forms.Timer(this.components);
             this.lbScore = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.timerRectangles = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // timer
+            // timerScore
             // 
-            this.timer.Enabled = true;
-            this.timer.Interval = 1;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            this.timerScore.Enabled = true;
+            this.timerScore.Tick += new System.EventHandler(this.timerScore_Tick);
             // 
             // lbScore
             // 
@@ -66,6 +66,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Score:";
             // 
+            // timerRectangles
+            // 
+            this.timerRectangles.Enabled = true;
+            this.timerRectangles.Interval = 1000;
+            this.timerRectangles.Tick += new System.EventHandler(this.timerRectangles_Tick);
+            // 
             // gameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -86,8 +92,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Timer timerScore;
         private System.Windows.Forms.Label lbScore;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timerRectangles;
     }
 }
